@@ -1,0 +1,139 @@
+body {
+    background: linear-gradient(135deg, #0a0f1e 0%, #0a1a2f 100%);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #e0e0e0;
+    min-height: 100vh;
+    transition: all 0.3s ease;
+}
+
+/* Light Theme */
+body.light-theme {
+    background: linear-gradient(135deg, #e0e0e0 0%, #ffffff 100%);
+    color: #1a1a2e;
+}
+
+body.light-theme .card,
+body.light-theme .temp-card,
+body.light-theme .control-card,
+body.light-theme .health-card {
+    background: #ffffff;
+    border-color: #00d4ff;
+    color: #1a1a2e;
+}
+
+body.light-theme .navbar {
+    background: #ffffff !important;
+    border-bottom-color: #00d4ff;
+}
+
+body.light-theme .navbar-brand {
+    color: #1a1a2e !important;
+}
+
+body.light-theme .form-select,
+body.light-theme .form-control {
+    background: #f0f0f0;
+    color: #1a1a2e;
+    border-color: #00d4ff;
+}
+
+body.light-theme .text-muted {
+    color: #555 !important;
+}
+
+.navbar {
+    background: #0a0a1a !important;
+    border-bottom: 1px solid #00d4ff;
+    padding: 15px 0;
+}
+
+.main-container {
+    margin-top: 30px;
+}
+
+.card {
+    background: rgba(20, 25, 45, 0.95);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    border-radius: 15px;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.temp-card {
+    transition: transform 0.2s;
+}
+
+.temp-card:hover {
+    transform: translateY(-5px);
+    border-color: #00d4ff;
+}
+
+.temp-value {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.temp-unit {
+    font-size: 1rem;
+    color: #888;
+}
+
+.progress {
+    height: 8px;
+    border-radius: 10px;
+    background: #333;
+    margin: 10px 0;
+}
+
+.progress-bar {
+    border-radius: 10px;
+    transition: width 0.3s;
+}
+
+.form-control, .form-select {
+    background: #1a1a2e;
+    border: 1px solid #00d4ff;
+    color: white;
+}
+
+.form-control:focus, .form-select:focus {
+    background: #1a1a2e;
+    border-color: #00ff88;
+    color: white;
+}
+
+.btn {
+    border-radius: 8px;
+    padding: 8px 16px;
+    transition: all 0.2s;
+}
+
+.btn:hover {
+    transform: scale(1.02);
+}
+
+.alert-panel {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.temp-safe { color: #00ff88; }
+.temp-warning { color: #ffaa00; }
+.temp-critical { color: #ff6600; }
+.temp-emergency { color: #ff0033; }
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #1a1a2e;
+}
+::-webkit-scrollbar-thumb {
+    background: #00d4ff;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    .temp-value { font-size: 1.8rem; }
+    h2 { font-size: 1.2rem; }
+    .btn { padding: 6px 12px; font-size: 0.8rem; }
+}

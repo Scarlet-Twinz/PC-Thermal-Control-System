@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>PC Temperature Control System | Joel Jenom Jebson</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="app-body">
+
+<nav class="navbar navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#"><i class="fas fa-microchip"></i> PC Thermal Control System</a>
+        <div>
+            <button id="themeToggle" class="btn btn-sm btn-outline-info me-2"><i class="fas fa-moon"></i> Dark/Light</button>
+            <span class="badge bg-success"><i class="fas fa-circle"></i> Live</span>
+        </div>
+    </div>
+</nav>
+
+<div class="container main-container">
+    <!-- Header -->
+    <div class="text-center mb-4">
+        <h2>Design and Implementation of a Simulation of Personal Computer Temperature Control System</h2>
+        <p class="text-muted"><strong>Joel Jenom Jebson</strong> | B.Sc. Computer Science | Final Year Project</p>
+    </div>
+
+    <!-- Temperature Cards -->
+    <div class="row g-4 mb-4">
+        <div class="col-md-3"><div class="card temp-card"><div class="card-body text-center">
+            <i class="fas fa-microchip fa-2x text-info"></i><h3>CPU</h3>
+            <div class="temp-value" id="cpuTemp">45<span class="temp-unit">°C</span></div>
+            <div class="progress"><div class="progress-bar" id="cpuBar" style="width:45%"></div></div>
+            <span id="cpuStatus">Safe</span>
+        </div></div></div>
+        <div class="col-md-3"><div class="card temp-card"><div class="card-body text-center">
+            <i class="fas fa-tv fa-2x text-danger"></i><h3>GPU</h3>
+            <div class="temp-value" id="gpuTemp">42<span class="temp-unit">°C</span></div>
+            <div class="progress"><div class="progress-bar" id="gpuBar" style="width:42%"></div></div>
+            <span id="gpuStatus">Safe</span>
+        </div></div></div>
+        <div class="col-md-3"><div class="card temp-card"><div class="card-body text-center">
+            <i class="fas fa-memory fa-2x text-warning"></i><h3>RAM</h3>
+            <div class="temp-value" id="ramTemp">38<span class="temp-unit">°C</span></div>
+            <div class="progress"><div class="progress-bar" id="ramBar" style="width:38%"></div></div>
+            <span id="ramStatus">Safe</span>
+        </div></div></div>
+        <div class="col-md-3"><div class="card temp-card"><div class="card-body text-center">
+            <i class="fas fa-plug fa-2x text-success"></i><h3>Motherboard</h3>
+            <div class="temp-value" id="mbTemp">40<span class="temp-unit">°C</span></div>
+            <div class="progress"><div class="progress-bar" id="mbBar" style="width:40%"></div></div>
+            <span id="mbStatus">Safe</span>
+        </div></div></div>
+    </div>
+
+    <!-- Health Score -->
+    <div class="row mb-4"><div class="col-md-4 mx-auto"><div class="card health-card text-center">
+        <h5><i class="fas fa-heartbeat text-danger"></i> System Health Score</h5>
+        <div class="display-4 fw-bold" id="healthScore">92</div>
+        <div class="progress"><div class="progress-bar" id="healthBar" style="width:92%"></div></div>
+        <span id="healthMsg">Excellent</span>
+    </div></div></div>
+
+    <!-- Controls Row 1 -->
+    <div class="row g-4 mb-4">
+        <div class="col-md-6"><div class="card control-card"><div class="card-body">
+            <h5><i class="fas fa-sliders-h"></i> Workload & Cooling</h5>
+            <label>Workload Mode:</label>
+            <select id="workload" class="form-select mb-2">
+                <option value="0.1">Idle (10%)</option><option value="0.25">Office (25%)</option>
+                <option value="0.4">Programming (40%)</option><option value="0.7" selected>Video Editing (70%)</option>
+                <option value="0.85">Gaming (85%)</option><option value="1.0">AI Training (100%)</option>
+            </select>
+            <label>Fan Speed: <span id="fanVal">60</span>%</label>
+            <input type="range" id="fan" class="form-range" min="0" max="100" value="60">
+            <label>Cooling Type:</label>
+            <select id="cooling" class="form-select">
+                <option value="0.7">Air Cooling</option><option value="1.2" selected>Water Cooling</option>
+                <option value="1.6">Hybrid Cooling</option>
+            </select>
+            <label>Ambient: <span id="ambientVal">25</span>°C</label>
+            <input type="range" id="ambient" class="form-range" min="15" max="40" value="25">
+        </div></div></div>
+        
+        <div class="col-md-6"><div class="card control-card"><div class="card-body">
+            <h5><i class="fas fa-gamepad"></i> Thermal Challenge Mode</h5>
+            <p class="small">Keep temps below 80°C as workload increases!</p>
+            <div class="row">
+                <div class="col-6">
+                    <div class="display-6" id="challengeScore">0</div>
+                    <small>Score</small>
+                </div>
+                <div class="col-6">
+                    <div class="display-6" id="challengeLevel">1</div>
+                    <small>Level</small>
+                </div>
+            </div>
+            <div class="d-flex gap-2 mt-2">
+                <button id="startChallengeBtn" class="btn btn-success btn-sm"><i class="fas fa-play"></i> Start</button>
+                <button id="stopChallengeBtn" class="btn btn-danger btn-sm" style="display:none"><i class="fas fa-stop"></i> Stop</button>
+            </div>
+            <div id="challengeMsg" class="small mt-2"></div>
+        </div></div></div>
+    </div>
+
+    <!-- Controls Row 2 - Advanced Features -->
+    <div class="row g-4 mb-4">
+        <div class="col-md-4"><div class="card control-card"><div class="card-body">
+            <h5><i class="fas fa-robot"></i> AI Prediction</h5>
+            <div class="d-flex gap-2 flex-wrap">
+                <button id="predict5Btn" class="btn btn-outline-info btn-sm">5 min</button>
+                <button id="predict10Btn" class="btn btn-outline-info btn-sm">10 min</button>
+                <button id="predict30Btn" class="btn btn-outline-info btn-sm">30 min</button>
+            </div>
+            <div id="predictionResult" class="mt-2 small"></div>
+        </div></div></div>
+        
+        <div class="col-md-4"><div class="card control-card"><div class="card-body">
+            <h5><i class="fas fa-desktop"></i> Virtual PC Builder</h5>
+            <select id="cpuModel" class="form-select form-select-sm mb-1">
+                <option value="65">Intel i5 (65W)</option><option value="95" selected>Intel i7 (95W)</option>
+                <option value="125">Intel i9 (125W)</option>
+            </select>
+            <select id="coolerModel" class="form-select form-select-sm">
+                <option value="0.7">Stock Cooler</option><option value="1.0">Air Cooler</option>
+                <option value="1.4" selected>Water Cooler</option>
+            </select>
+            <div id="builderMsg" class="small mt-1"></div>
+        </div></div></div>
+        
+        <div class="col-md-4"><div class="card control-card"><div class="card-body">
+            <h5><i class="fas fa-flask"></i> Comparison Lab</h5>
+            <select id="compareCooling" class="form-select form-select-sm">
+                <option value="0.7">Air Cooling</option><option value="1.2" selected>Water Cooling</option>
+                <option value="1.6">Hybrid Cooling</option>
+            </select>
+            <div id="compareResult" class="small mt-1"></div>
+        </div></div></div>
+    </div>
+
+    <!-- Chart -->
+    <div class="row mb-4"><div class="col-12"><div class="card"><div class="card-body">
+        <h5><i class="fas fa-chart-line"></i> Temperature History (Last 30 seconds)</h5>
+        <canvas id="tempChart" height="80"></canvas>
+    </div></div></div></div>
+
+    <!-- Data Management Buttons -->
+    <div class="row mb-4"><div class="col-12"><div class="card"><div class="card-body">
+        <h5><i class="fas fa-database"></i> Data Management</h5>
+        <div class="d-flex gap-2 flex-wrap">
+            <button id="saveBtn" class="btn btn-primary"><i class="fas fa-save"></i> Save State</button>
+            <button id="loadBtn" class="btn btn-info"><i class="fas fa-history"></i> Load State</button>
+            <button id="clearBtn" class="btn btn-warning"><i class="fas fa-trash"></i> Clear History</button>
+            <button id="pdfBtn" class="btn btn-danger"><i class="fas fa-file-pdf"></i> PDF Report</button>
+            <button id="csvBtn" class="btn btn-success"><i class="fas fa-file-csv"></i> CSV Export</button>
+        </div>
+    </div></div></div></div>
+
+    <!-- Alert Panel -->
+    <div class="row mb-4"><div class="col-12"><div class="card alert-panel"><div class="card-body">
+        <h5><i class="fas fa-bell"></i> Active Alerts</h5>
+        <div id="alertMsg">✅ No active alerts - System normal</div>
+    </div></div></div></div>
+
+    <!-- Recommendations -->
+    <div class="row mb-4"><div class="col-12"><div class="card"><div class="card-body">
+        <h5><i class="fas fa-lightbulb"></i> Recommendations</h5>
+        <div id="recMsg">System operating efficiently</div>
+    </div></div></div></div>
+
+    <!-- History Log -->
+    <div class="row mb-5"><div class="col-12"><div class="card"><div class="card-body">
+        <h5><i class="fas fa-history"></i> Event History (Saved in Browser)</h5>
+        <div id="historyLog" style="max-height:150px; overflow-y:auto; font-size:12px;"></div>
+    </div></div></div></div>
+</div>
+
+<script src="simulation.js"></script>
+</body>
+</html>
