@@ -1,1 +1,93 @@
-# 💻 PC Thermal Control System\n\n> *Intelligent Personal Computer Temperature Management & Optimization*\n\n[![Status](https://img.shields.io/badge/status-active-success.svg)]() [![License](https://img.shields.io/badge/license-MIT-blue.svg)]() [![Authors](https://img.shields.io/badge/authors-Joel%20%26%20Scarlet--Twinz-blue.svg)]()\n\nA sophisticated simulation system for monitoring and controlling personal computer thermal management. Features intelligent fan speed control, real-time temperature monitoring, and optimization algorithms.\n\n**Authors**: Joel Jenom Jebson, Scarlet-Twinz\n\n## 📋 Overview\n\nThe PC Thermal Control System implements comprehensive thermal management that:\n\n- **Monitors Temperature** - Real-time thermal sensor readings\n- **Optimizes Cooling** - Intelligent fan speed adjustment\n- **Prevents Overheating** - Safety thresholds and alerts\n- **Minimizes Noise** - Balances performance and acoustics\n- **Extends Hardware Life** - Reduces thermal stress\n\n## ✨ Features\n\n✅ Real-time temperature monitoring  \n✅ Intelligent fan speed control  \n✅ Multiple thermal zone support  \n✅ Historical data tracking  \n✅ Alert system for overheating  \n✅ Optimization algorithms  \n✅ User-friendly dashboard  \n✅ Advanced analytics  \n\n## 📊 Key Capabilities\n\n### Temperature Monitoring\n- **CPU Temperature** - Processor thermal readings\n- **GPU Temperature** - Graphics processor monitoring\n- **System Temperature** - Overall system heat\n- **Individual Zones** - Component-level tracking\n- **Historical Data** - Temperature trends over time\n\n### Fan Control\n- **Adaptive Speed** - Dynamic RPM adjustment\n- **Custom Curves** - User-defined fan profiles\n- **PWM Control** - Precise speed regulation\n- **Multi-Fan Support** - Multiple cooling systems\n- **Noise Optimization** - Quieter operation modes\n\n### Safety Features\n- **Temperature Alerts** - Warning thresholds\n- **Shutdown Protection** - Emergency cooling\n- **Failsafe Mode** - Maximum cooling if needed\n- **Audit Logging** - Track thermal events\n- **Backup Systems** - Redundant cooling\n\n### Analytics\n- **Performance Dashboard** - Visual monitoring\n- **Temperature Graphs** - Historical visualization\n- **Efficiency Reports** - System optimization analysis\n- **Thermal Alerts Log** - Event tracking\n- **Predictive Analysis** - Trend forecasting\n\n## 🚀 Getting Started\n\n### Installation\n\n```bash\n# Clone repository\ngit clone https://github.com/Scarlet-Twinz/PC-Thermal-Control-System.git\n\n# Navigate to directory\ncd PC-Thermal-Control-System\n\n# Install dependencies\nnpm install\n\n# Configure system\ncp config.example.json config.json\n\n# Start the system\nnpm start\n```\n\n### Configuration\n\nEdit `config.json`:\n\n```json\n{\n  \"thermal\": {\n    \"cpu_max_temp\": 85,\n    \"gpu_max_temp\": 80,\n    \"system_max_temp\": 60,\n    \"critical_temp\": 95\n  },\n  \"fans\": {\n    \"fan_curve\": \"adaptive\",\n    \"min_speed\": 20,\n    \"max_speed\": 100\n  },\n  \"monitoring\": {\n    \"interval\": 1000,\n    \"log_data\": true,\n    \"alert_threshold\": 80\n  }\n}\n```\n\n## 📖 Usage Guide\n\n### Dashboard Overview\n\n```\n┌─────────────────────────────────────┐\n│   PC Thermal Control Dashboard      │\n├─────────────────────────────────────┤\n│ CPU Temp: 56°C ████░ 65%            │\n│ GPU Temp: 48°C ███░░ 45%            │\n│ SYS Temp: 42°C ██░░░ 35%            │\n├─────────────────────────────────────┤\n│ Fan Speed: 1200 RPM (40%)           │\n│ Status: Optimal                     │\n├─────────────────────────────────────┤\n│ [Graphs] [Settings] [Alerts]        │\n└─────────────────────────────────────┘\n```\n\n### How It Works\n\n```\n1. Temperature Sensor Module\n   └─ Reads from system sensors\n       └─ Collects CPU/GPU/System temps\n\n2. Analysis Engine\n   └─ Evaluates current conditions\n       └─ Compares against thresholds\n\n3. Control Algorithm\n   └─ Calculates optimal fan speed\n       └─ Considers temperature curve\n\n4. Fan Control\n   └─ Adjusts fan speeds (PWM)\n       └─ Sends control signals\n\n5. Monitoring & Logging\n   └─ Records data points\n       └─ Generates alerts if needed\n```\n\n## 🛠️ Technologies\n\n- **Language**: JavaScript/Node.js\n- **Frontend**: HTML5, CSS3, Chart.js\n- **Backend**: Node.js, Express.js\n- **Hardware Interface**: System APIs\n- **Database**: SQLite for logging\n- **Analytics**: D3.js for visualization\n\n## 📊 Thermal Management Algorithms\n\n### Adaptive Fan Curve\n\n```javascript\n// Temperature to Fan Speed Mapping\nif (temp < 40°C)    → Fan: 20% (Minimum)\nif (40°C ≤ temp < 50°C)  → Fan: 30%\nif (50°C ≤ temp < 60°C)  → Fan: 50%\nif (60°C ≤ temp < 75°C)  → Fan: 75%\nif (temp ≥ 75°C)    → Fan: 100% (Maximum)\n```\n\n### Hysteresis Control\n\nPrevents rapid on/off cycling:\n- Cooling starts at 75°C\n- Cooling stops at 65°C\n- Prevents aggressive switching\n\n## 📈 Performance Metrics\n\n| Metric | Value |\n|--------|-------|\n| Response Time | < 100ms |\n| Sampling Rate | 1000ms |\n| Max Zones | 8 |\n| Max Fans | 10 |\n| Accuracy | ±2°C |\n| Reliability | 99.9% |\n\n## 🔧 Advanced Configuration\n\n### Custom Fan Profiles\n\n```json\n{\n  \"profiles\": [\n    {\n      \"name\": \"Silent\",\n      \"curve\": [[30, 20], [60, 40], [85, 80]]\n    },\n    {\n      \"name\": \"Performance\",\n      \"curve\": [[40, 30], [60, 60], [85, 100]]\n    },\n    {\n      \"name\": \"Extreme\",\n      \"curve\": [[50, 50], [70, 100]]\n    }\n  ]\n}\n```\n\n## 📊 Data Export\n\nExport thermal data for analysis:\n\n```bash\n# Export daily report\nnpm run export:daily\n\n# Export weekly report\nnpm run export:weekly\n\n# Export to CSV\nnpm run export:csv\n```\n\n## 🎯 Use Cases\n\n- **Gaming Systems** - Maintain optimal cooling during intensive use\n- **Server Rooms** - Monitor multiple systems simultaneously\n- **Workstations** - Professional thermal management\n- **Mining Rigs** - Handle extreme thermal loads\n- **Data Centers** - Large-scale cooling optimization\n\n## ⚠️ Safety Features\n\n- **Emergency Shutdown** - Prevents hardware damage\n- **Temperature Alerts** - Notifies on high temps\n- **Failsafe Mode** - Maximum cooling if system fails\n- **Automatic Backoff** - Reduces load if overheating\n- **Sensor Redundancy** - Multiple temperature sources\n\n## 🐛 Troubleshooting\n\n| Issue | Solution |\n|-------|----------|\n| Fans not responding | Check hardware drivers |\n| Temperature spikes | Improve case airflow |\n| Sensors not detected | Update BIOS/firmware |\n| High baseline temps | Clean dust filters |\n\n## 📚 Documentation\n\n- [Installation Guide](docs/installation.md)\n- [Configuration Guide](docs/configuration.md)\n- [API Reference](docs/api.md)\n- [Troubleshooting](docs/troubleshooting.md)\n\n## 🤝 Contributing\n\nContributions welcome!\n\n```bash\ngit checkout -b feature/your-feature\ngit commit -m 'Add feature'\ngit push origin feature/your-feature\n```\n\n## 📄 License\n\nMIT License © 2024 - See [LICENSE](LICENSE)\n\n## 👥 Authors\n\n- **Joel Jenom Jebson** - Co-author\n- **Scarlet-Twinz** - Co-author & maintainer\n\n## 💬 Support\n\n- 📧 Email: support@example.com\n- 🐛 [Issues](https://github.com/Scarlet-Twinz/PC-Thermal-Control-System/issues)\n- 📖 [Documentation](https://docs.example.com)\n\n---\n\n<div align=\"center\">\n\n### 🌡️ Keep Your PC Cool & Running Smooth!\n\n⭐ Star if helpful!\n\n[Back to Top](#pc-thermal-control-system)\n\n</div>"
+# PC Thermal Control System
+
+A browser-based simulation of personal computer temperature control and thermal management. The project models component temperatures under different workloads, fan speeds, ambient temperatures, and cooling configurations, then visualizes the results through an interactive dashboard.
+
+> **Project context:** The interface presents the work as a simulation/final-year project rather than a direct hardware-control application.
+
+## Features
+
+- Real-time simulated temperature readings for CPU, GPU, RAM, and motherboard
+- Component status indicators: Safe, Warning, Critical, and Emergency
+- System health score based on simulated component temperatures
+- Workload controls for Idle, Office, Programming, Video Editing, Gaming, and AI Training scenarios
+- Adjustable fan speed and ambient temperature
+- Cooling configuration comparison: air, water, and hybrid cooling
+- Virtual PC Builder for comparing CPU power and cooler configurations
+- Thermal Challenge Mode with score and level tracking
+- Short-term temperature prediction controls
+- Temperature history chart using Chart.js
+- Dark/light theme toggle
+- Browser-based state and event-history persistence with `localStorage`
+- CSV export, PDF report, save/load state, and history-clearing controls
+- Alerts and cooling recommendations based on simulated thermal conditions
+- Responsive interface for desktop and smaller screens
+
+## How the Simulation Works
+
+The core simulation models each component with minimum and maximum temperature ranges. Temperature is recalculated from workload, fan speed, ambient temperature, cooling effectiveness, and a small random variation to make the simulation dynamic.
+
+The dashboard then updates component temperatures, status levels, health score, alerts, recommendations, and the historical chart.
+
+This is a **simulation**: the current implementation does not directly read physical CPU/GPU sensors or send PWM signals to real fans.
+
+## Tech Stack
+
+- HTML5
+- CSS3
+- JavaScript
+- Bootstrap 5.3
+- Font Awesome
+- Chart.js
+- Browser `localStorage`
+
+## Project Structure
+
+```text
+PC-Thermal-Control-System/
+├── index.html        # Dashboard and controls
+├── style.css         # Application styling and responsive layout
+└── simulation.js     # Thermal simulation and interactive behavior
+```
+
+## Running Locally
+
+No package installation or backend server is required for the current browser-based implementation.
+
+1. Clone the repository.
+2. Open `index.html` in a modern browser.
+3. Adjust workload, fan speed, ambient temperature, and cooling options.
+4. Explore the challenge, prediction, PC builder, comparison, chart, and data-management features.
+
+Because the page loads Bootstrap, Font Awesome, and Chart.js from CDNs, an internet connection may be required for those external assets when running the page directly.
+
+## Simulation Controls
+
+### Workload
+
+The dashboard provides several simulated workload levels, from idle operation through high-load scenarios such as gaming and AI training.
+
+### Cooling
+
+Fan speed, ambient temperature, and cooling type affect the calculated temperature values. The Virtual PC Builder also changes the CPU power/cooling factors used by the simulation.
+
+### Thermal Challenge
+
+Challenge Mode turns the thermal model into an interactive exercise where the goal is to keep simulated component temperatures below the displayed threshold while workload increases.
+
+## Data Persistence
+
+The application uses browser `localStorage` for client-side persistence, including:
+
+- Theme preference
+- Thermal event history
+- Saved thermal state
+
+No database or external application backend is required by the current implementation.
+
+## Author
+
+**Anthony Emmanuella Mmasinachi**
+
+## Notes
+
+The repository contains a front-end simulation and visualization rather than verified physical hardware-control infrastructure. Claims about real sensor access, PWM fan control, databases, production monitoring, or hardware safety should not be inferred from this project.
