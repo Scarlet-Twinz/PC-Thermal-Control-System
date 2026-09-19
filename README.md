@@ -91,3 +91,9 @@ No database or external application backend is required by the current implement
 ## Notes
 
 The repository contains a front-end simulation and visualization rather than verified physical hardware-control infrastructure. Claims about real sensor access, PWM fan control, databases, production monitoring, or hardware safety should not be inferred from this project.
+
+## Project Links
+
+- **Repository:** https://github.com/Scarlet-Twinz/PC-Thermal-Control-System
+- **Author:** Anthony Emmanuella Mmasinachi
+- **GitHub:** https://github.com/Scarlet-Twinz
