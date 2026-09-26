@@ -51,10 +51,14 @@ PC-Thermal-Control-System/
 
 ## Running Locally
 
-No package installation or backend server is required for the current browser-based implementation.
+No package installation or backend server is required.
 
-1. Clone the repository.
-2. Open `index.html` in a modern browser.
+```bash
+git clone https://github.com/Scarlet-Twinz/PC-Thermal-Control-System.git
+cd PC-Thermal-Control-System
+```
+
+Open `index.html` in a modern browser.
 3. Adjust workload, fan speed, ambient temperature, and cooling options.
 4. Explore the challenge, prediction, PC builder, comparison, chart, and data-management features.
 
