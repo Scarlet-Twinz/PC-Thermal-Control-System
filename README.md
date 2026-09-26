@@ -1,4 +1,4 @@
-# PC Thermal Control System
+#  PC Thermal Control System
 
 A browser-based simulation of personal computer temperature control and thermal management. The project models component temperatures under different workloads, fan speeds, ambient temperatures, and cooling configurations, then visualizes the results through an interactive dashboard.
 
