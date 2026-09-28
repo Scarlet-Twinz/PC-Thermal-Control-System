@@ -101,3 +101,8 @@ The repository contains a front-end simulation and visualization rather than ver
 - **Repository:** https://github.com/Scarlet-Twinz/PC-Thermal-Control-System
 - **Author:** Anthony Emmanuella Mmasinachi
 - **GitHub:** https://github.com/Scarlet-Twinz
+## License
+
+MIT License.
+
+See [LICENSE](LICENSE) for the full license text.
